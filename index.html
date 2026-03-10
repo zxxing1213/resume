@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张三 - Java 开发工程师</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+        
+        /* 打印样式优化 */
+        @media print {
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            /* 强制显示关键元素的背景色 */
+            .bg-gray-900 { background-color: #111827 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .bg-blue-600 { background-color: #2563eb !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .bg-blue-50 { background-color: #eff6ff !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .bg-yellow-50 { background-color: #fefce8 !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .bg-gray-50 { background-color: #f9fafb !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+            .border-blue-100 { border-color: #dbeafe !important; }
+            
+            /* 确保文字颜色正确 */
+            .text-white { color: white !important; }
+            .text-gray-900 { color: #111827 !important; }
+            .text-blue-600 { color: #2563eb !important; }
+            .text-blue-700 { color: #1d4ed8 !important; }
+            
+            /* 去除阴影和边框 */
+            .shadow-lg { box-shadow: none !important; }
+            .border { border-color: #e5e7eb !important; }
+            
+            /* 调整页面布局 */
+            .min-h-\[1123px\] { min-height: auto !important; height: auto !important; }
+            
+            /* 分页控制 */
+            h1, h2, h3, h4, h5, h6 { 
+                page-break-after: auto; 
+                break-after: auto;
+            }
+            
+            /* 允许所有内容自由跨页，不再强制避免内部切断 */
+            * {
+                page-break-inside: auto !important;
+                break-inside: auto !important;
+            }
+            
+            /* 强制重置样式 */
+            .break-inside-avoid { 
+                page-break-inside: auto !important; 
+                break-inside: auto !important;
+            }
+            
+            /* 隐藏不需要的元素（如果有的话） */
+            .no-print { display: none !important; }
+            
+            /* 自定义页边距（可选） */
+            @page {
+                margin: 10mm;
+                size: auto;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100 font-sans py-8 print:bg-white print:py-0">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg p-8 md:p-10 min-h-[1123px] print:shadow-none print:max-w-none print:w-full print:p-0 print:m-0">
+        
+        <!-- Header -->
+        <div class="mb-8 pb-6 border-b border-gray-200 print:mb-6 print:pb-4">
+            <div class="flex flex-col md:flex-row justify-between items-start print:flex-row">
+                <!-- 左侧：个人基本信息 -->
+                <div class="w-full">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h1 class="text-3xl font-extrabold text-gray-900 mb-1 tracking-tight">张三</h1>
+                            <p class="text-lg text-blue-700 font-bold">Java 开发工程师</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 个人信息重组：姓名 → 岗位 → 联系方式 → 工作年限 → 学历 → 证书 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 font-medium mt-2">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-phone w-5 text-gray-400 print:text-gray-600"></i>
+                            155********
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-envelope w-5 text-gray-400 print:text-gray-600"></i>
+                            155********@163.com
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-briefcase w-5 text-gray-400 print:text-gray-600"></i>
+                            <span class="text-gray-900 font-semibold">x年经验</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-user w-5 text-gray-400 print:text-gray-600"></i>
+                            <span>xx岁</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-graduation-cap w-5 text-gray-400 print:text-gray-600"></i>
+                            <span>xxxx大学 · 软件工程 (本科 20xx-20xx)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-certificate w-5 text-gray-400 print:text-gray-600"></i>
+                            <span class="inline-flex items-center bg-yellow-50 text-yellow-800 text-xs px-2 py-0.5 rounded border border-yellow-200 print:bg-yellow-50 print:text-yellow-800 print:border-yellow-200">
+                                软件设计师(软考中级)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 个人总结模块 -->
+            <div class="mt-6 bg-blue-50 p-4 rounded-lg border border-blue-100 text-sm text-gray-700 leading-relaxed text-justify print:bg-blue-50 print:border-blue-100">
+                <p><strong>个人总结：</strong>x年 Java 后端开发经验，专注于<strong>略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略</strong>与<strong>略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略</strong>。具备略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略</p>
+            </div>
+        </div>
+
+        <div class="space-y-8 print:space-y-6">
+            <!-- 优势模块 -->
+            <section class="break-inside-avoid">
+                <div class="flex items-center mb-4 pb-2 border-b-2 border-gray-800 print:mb-3 print:pb-1">
+                    <div class="w-6 h-6 bg-gray-900 text-white flex items-center justify-center mr-3 text-xs rounded print:bg-gray-900 print:text-white print-color-adjust-exact">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 tracking-wide">专业技能</h2>
+                </div>
+                <div class="space-y-2.5 print:space-y-2">
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>丰富xxxxxxxxxxxxxxxxxxxxxxxxx</strong>:主导过略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略<strong>略略略略略略略略略略略略略略略略</strong>略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略。</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>精通Java核心技术：</strong>深入理解 JVM 内存模型、G1 垃圾回收机制、多线程并发编程（锁机制、线程池、CAS），具备扎实的系统稳定性保障经验。</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>深度掌握 Spring Cloud Alibaba 微服务生态</strong> 熟练运用服务治理（Nacos/Sentinel/Gateway）、熔断降级、分库分表、多级缓存、MQ削峰等分布式解决方案。</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>精通数据库架构与调优：</strong>略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>熟练集成 Camunda 工作流引擎：</strong>略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>具备 AI 工程化落地经验：</strong>略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>全栈开发能力：</strong>熟练运用略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略略</p>
+                    </div>
+                    <div class="flex items-start text-sm text-gray-700 leading-relaxed text-justify">
+                        <i class="fa-solid fa-check text-blue-600 mt-1 mr-2.5 flex-shrink-0 text-xs print:text-blue-600"></i>
+                        <p><strong>DevOps 实战经验：</strong>熟练使用 Docker、K8s、Jenkins 等工具，搭建 CI/CD 流水线，实现微服务自动化部署与版本管控。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 工作经历 -->
+            <section>
+                <div class="flex items-center mb-4 pb-2 border-b-2 border-gray-800 print:mb-3 print:pb-1 break-inside-avoid">
+                    <div class="w-6 h-6 bg-gray-900 text-white flex items-center justify-center mr-3 text-xs rounded print:bg-gray-900 print:text-white print-color-adjust-exact">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 tracking-wide">工作经历</h2>
+                </div>
+                <div class="space-y-6 print:space-y-4">
+                    <!-- 慧捷 -->
+                    <div class="relative pl-4 border-l-2 border-gray-100 last:border-0 pb-1 break-inside-avoid">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-300 rounded-full border-2 border-white print:bg-gray-300 print:border-gray-100"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2 print:flex-row print:justify-between print:items-baseline">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900">略略略略略略 科技有限公司</h3>
+<!--                                <div class="text-blue-700 font-medium text-xs mt-0.5 print:text-blue-700">Java开发工程师</div>-->
+                            </div>
+                            <span class="text-xs font-semibold text-gray-500 whitespace-nowrap mt-1 sm:mt-0">20xx.11 – 至今</span>
+                        </div>
+                        
+                        <ul class="space-y-1">
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="relative pl-4 border-l-2 border-gray-100 last:border-0 pb-1 break-inside-avoid">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-300 rounded-full border-2 border-white print:bg-gray-300 print:border-gray-100"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2 print:flex-row print:justify-between print:items-baseline">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900">上海略略信息技术有限公司</h3>
+<!--                                <div class="text-blue-700 font-medium text-xs mt-0.5 print:text-blue-700">Java开发工程师</div>-->
+                            </div>
+                            <span class="text-xs font-semibold text-gray-500 whitespace-nowrap mt-1 sm:mt-0">20xx.08 – 20xx.10</span>
+                        </div>
+
+                        <ul class="space-y-1">
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 社宝科技 -->
+                    <div class="relative pl-4 border-l-2 border-gray-100 last:border-0 pb-1 break-inside-avoid">
+                        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 bg-gray-300 rounded-full border-2 border-white print:bg-gray-300 print:border-gray-100"></div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-2 print:flex-row print:justify-between print:items-baseline">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900">略略科技（上海）有限公司</h3>
+<!--                                <div class="text-blue-700 font-medium text-xs mt-0.5 print:text-blue-700">后端开发工程师（实习）</div>-->
+                            </div>
+                            <span class="text-xs font-semibold text-gray-500 whitespace-nowrap mt-1 sm:mt-0">2020.12 – 2021.07</span>
+                        </div>
+
+                        <ul class="space-y-1">
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify">作为<strong>略略略略略略略略略</strong>，略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                            <li class="text-sm text-gray-600 leading-relaxed flex items-start">
+                                <span class="mr-2 text-gray-400 transform scale-150 leading-4">·</span>
+                                <span class="text-justify"><strong>负责海量数据架构优化：</strong>略略略略略略略略略，略略略略略略略略略略略略略略略略略略，略略略略略略略略略略略略略略略略略略略略略略略略略略略，略略略略略略略略略。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 项目经验 -->
+            <section>
+                <div class="flex items-center mb-4 pb-2 border-b-2 border-gray-800 print:mb-3 print:pb-1 break-inside-avoid">
+                    <div class="w-6 h-6 bg-gray-900 text-white flex items-center justify-center mr-3 text-xs rounded print:bg-gray-900 print:text-white print-color-adjust-exact">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h2 class="text-lg font-bold text-gray-900 tracking-wide">项目经验</h2>
+                </div>
+                <div class="space-y-6 print:space-y-4">
+                    <div class="bg-gray-50 rounded-lg p-5 border border-gray-200 break-inside-avoid print:bg-gray-50 print:border-gray-200">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3 print:flex-row">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                                      略略略平台
+                                    <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] rounded font-normal print:bg-blue-600 print:text-white print-color-adjust-exact">核心开发 & 架构</span>
+                                </h3>
+                                <div class="flex flex-wrap gap-1 mt-2">
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Spring Cloud Alibaba</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MySQL(Sharding-JDBC)</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Redis</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Kafka</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MyBatis-Plus</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">K8s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="text-sm text-gray-700">
+                                <span class="font-bold text-gray-900">项目描述：</span>
+                                略略略，略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="font-bold text-gray-900 mb-1">核心贡献：</div>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>架构重构与微服务化：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>性能调优与高可用：</strong>① 略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；② 消息治理：略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；③ JVM 调优：针对 GC 频繁卡顿问题，采用 G1 收集器，优化参数配置，将核心接口响应从 300ms 压降至 100ms 内。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>容灾与合规：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+<!--                                    <li class="flex items-start">-->
+<!--                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>-->
+<!--                                        <span class="text-justify text-gray-600">可视化部署集成：主导基于 K8s 的微服务部署包配置与 Jenkins CI/CD 流程接入，实现微服务自动化部署与版本管控。</span>-->
+<!--                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-5 border border-gray-200 break-inside-avoid print:bg-gray-50 print:border-gray-200">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3 print:flex-row">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                                    略略略平台
+                                    <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] rounded font-normal print:bg-blue-600 print:text-white print-color-adjust-exact">核心开发 & 架构</span>
+                                </h3>
+                                <div class="flex flex-wrap gap-1 mt-2">
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Spring Cloud Alibaba</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MySQL(Sharding-JDBC)</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Redis</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Kafka</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MyBatis-Plus</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">K8s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="text-sm text-gray-700">
+                                <span class="font-bold text-gray-900">项目描述：</span>
+                                略略略，略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="font-bold text-gray-900 mb-1">核心贡献：</div>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>架构重构与微服务化：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>性能调优与高可用：</strong>① 略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；② 消息治理：略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；③ JVM 调优：针对 GC 频繁卡顿问题，采用 G1 收集器，优化参数配置，将核心接口响应从 300ms 压降至 100ms 内。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>容灾与合规：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+                                    <!--                                    <li class="flex items-start">-->
+                                    <!--                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>-->
+                                    <!--                                        <span class="text-justify text-gray-600">可视化部署集成：主导基于 K8s 的微服务部署包配置与 Jenkins CI/CD 流程接入，实现微服务自动化部署与版本管控。</span>-->
+                                    <!--                                    </li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-5 border border-gray-200 break-inside-avoid print:bg-gray-50 print:border-gray-200">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3 print:flex-row">
+                            <div>
+                                <h3 class="text-base font-bold text-gray-900 flex items-center gap-2">
+                                    略略略平台
+                                    <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] rounded font-normal print:bg-blue-600 print:text-white print-color-adjust-exact">核心开发 & 架构</span>
+                                </h3>
+                                <div class="flex flex-wrap gap-1 mt-2">
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Spring Cloud Alibaba</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MySQL(Sharding-JDBC)</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Redis</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">Kafka</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">MyBatis-Plus</span>
+                                    <span class="text-[10px] px-1.5 py-0.5 bg-white border border-gray-300 text-gray-500 rounded print:bg-white print:border-gray-300">K8s</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="text-sm text-gray-700">
+                                <span class="font-bold text-gray-900">项目描述：</span>
+                                略略略，略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。
+                            </div>
+                            <div class="text-sm text-gray-700">
+                                <div class="font-bold text-gray-900 mb-1">核心贡献：</div>
+                                <ul class="space-y-1.5">
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>架构重构与微服务化：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>性能调优与高可用：</strong>① 略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；② 消息治理：略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略；③ JVM 调优：针对 GC 频繁卡顿问题，采用 G1 收集器，优化参数配置，将核心接口响应从 300ms 压降至 100ms 内。</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="mr-2 text-blue-500 font-bold print:text-blue-500">-</span>
+                                        <span class="text-justify text-gray-600"><strong>容灾与合规：</strong>略略略，略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略，略略略略略略略略略略略略略略略，略略略。</span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
